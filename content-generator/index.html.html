@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创意内容生成平台</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>创意内容生成平台</h1>
+            <p class="subtitle">通过简单选择，快速生成文案、图像和视频内容</p>
+        </header>
+        
+        <div class="content-types">
+            <button class="content-type-btn active" data-type="copywriting">
+                <i class="icon">📝</i>
+                <span>文案生成</span>
+            </button>
+            <button class="content-type-btn" data-type="image">
+                <i class="icon">🖼️</i>
+                <span>图像生成</span>
+            </button>
+            <button class="content-type-btn" data-type="video">
+                <i class="icon">🎬</i>
+                <span>视频生成</span>
+            </button>
+        </div>
+        
+        <!-- 文案生成表单 -->
+        <div class="content-form" id="copywriting-form">
+            <div class="form-group">
+                <label for="copy-type">文案类型</label>
+                <select id="copy-type">
+                    <option value="social-media">社交媒体文案</option>
+                    <option value="ad">广告文案</option>
+                    <option value="product">产品描述</option>
+                    <option value="email">电子邮件营销</option>
+                    <option value="blog">博客文章</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="tone">语气风格</label>
+                    <select id="tone">
+                        <option value="professional">专业正式</option>
+                        <option value="casual">轻松随意</option>
+                        <option value="humorous">幽默风趣</option>
+                        <option value="inspirational">鼓舞人心</option>
+                        <option value="urgent">紧迫感</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="length">文案长度</label>
+                    <select id="length">
+                        <option value="short">简短 (50-100字)</option>
+                        <option value="medium">中等 (100-300字)</option>
+                        <option value="long">长篇 (300-500字)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="keywords">关键词 (用逗号分隔)</label>
+                <input type="text" id="keywords" placeholder="例如：创新, 科技, 未来">
+            </div>
+            
+            <div class="form-group">
+                <label for="additional-info">附加信息</label>
+                <textarea id="additional-info" rows="3" placeholder="提供更多细节，帮助生成更精准的文案..."></textarea>
+            </div>
+        </div>
+        
+        <!-- 图像生成表单 -->
+        <div class="content-form hidden" id="image-form">
+            <div class="form-group">
+                <label for="image-type">图像类型</label>
+                <select id="image-type">
+                    <option value="photo">照片</option>
+                    <option value="illustration">插画</option>
+                    <option value="abstract">抽象艺术</option>
+                    <option value="minimalist">极简风格</option>
+                    <option value="3d">3D渲染</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="image-style">艺术风格</label>
+                    <select id="image-style">
+                        <option value="realistic">写实</option>
+                        <option value="cartoon">卡通</option>
+                        <option value="watercolor">水彩</option>
+                        <option value="oil-painting">油画</option>
+                        <option value="digital">数字艺术</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="color-scheme">色彩方案</label>
+                    <select id="color-scheme">
+                        <option value="vibrant">鲜艳明亮</option>
+                        <option value="pastel">柔和粉彩</option>
+                        <option value="monochrome">单色</option>
+                        <option value="dark">暗色调</option>
+                        <option value="warm">暖色调</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="image-subject">图像主题</label>
+                <input type="text" id="image-subject" placeholder="例如：城市夜景、森林中的动物">
+            </div>
+            
+            <div class="form-group">
+                <label for="image-details">细节描述</label>
+                <textarea id="image-details" rows="3" placeholder="详细描述您想要的图像内容..."></textarea>
+            </div>
+        </div>
+        
+        <!-- 视频生成表单 -->
+        <div class="content-form hidden" id="video-form">
+            <div class="form-group">
+                <label for="video-type">视频类型</label>
+                <select id="video-type">
+                    <option value="promotional">宣传视频</option>
+                    <option value="tutorial">教程视频</option>
+                    <option value="explainer">产品解说</option>
+                    <option value="testimonial">客户评价</option>
+                    <option value="social-media">社交媒体短视频</option>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="video-length">视频长度</label>
+                    <select id="video-length">
+                        <option value="short">短视频 (15-30秒)</option>
+                        <option value="medium">中等长度 (1-2分钟)</option>
+                        <option value="long">长视频 (3-5分钟)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="video-style">视频风格</label>
+                    <select id="video-style">
+                        <option value="dynamic">动态快节奏</option>
+                        <option value="cinematic">电影感</option>
+                        <option value="minimalist">极简</option>
+                        <option value="corporate">企业风格</option>
+                        <option value="playful">活泼有趣</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="video-topic">视频主题</label>
+                <input type="text" id="video-topic" placeholder="例如：新产品发布、品牌故事">
+            </div>
+            
+            <div class="form-group">
+                <label for="video-script">脚本要点</label>
+                <textarea id="video-script" rows="3" placeholder="提供视频的主要内容和关键信息..."></textarea>
+            </div>
+        </div>
+        
+        <div class="preview-area">
+            <div class="preview-placeholder" id="preview-placeholder">
+                <i class="placeholder-icon">👆</i>
+                <h3>内容预览区域</h3>
+                <p>选择参数并点击"生成内容"按钮后，您的内容将显示在这里</p>
+            </div>
+            
+            <div class="preview-content" id="preview-copywriting">
+                <h3>生成的文案</h3>
+                <div class="preview-text" id="copywriting-text"></div>
+            </div>
+            
+            <div class="preview-content" id="preview-image">
+                <h3>生成的图像</h3>
+                <div class="image-container">
+                    <img class="preview-image" id="image-preview" src="" alt="生成的图像">
+                </div>
+            </div>
+            
+            <div class="preview-content" id="preview-video">
+                <h3>生成的视频</h3>
+                <div class="video-container">
+                    <video class="preview-video" id="video-preview" controls>
+                        <source src="" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-primary" id="generate-btn">
+                <i class="btn-icon">✨</i>
+                <span>生成内容</span>
+            </button>
+            <button class="btn btn-secondary" id="download-btn">
+                <i class="btn-icon">💾</i>
+                <span>下载内容</span>
+            </button>
+        </div>
+        
+        <footer>
+            <p>© 2023 创意内容生成平台 | 使用AI技术助力您的创意工作</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
